@@ -10,3 +10,7 @@ rvm:
 matrix:
   allow_failures:
     - rvm: ruby-head
+addons:
+  code_climate:
+    repo_token:
+      secure: "FEihSlX0rnn4m6Qltq6aUmFqhCtKWDKCaffQ4WJsqJhoKiFybxfRDWOfx2NHTq8Ej77L+1K9OFoVHqirS43VaFvdUp9oOHHwU8VWQes3iEzxbAQvtIK1dUhjO/HwT4tyWl+f/PzGAlTY7GfdgjlptjMtOpvM/ngbS0cnqe0E7qk="
