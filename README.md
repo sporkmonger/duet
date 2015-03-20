@@ -9,6 +9,7 @@
 [![Build Status](https://secure.travis-ci.org/sporkmonger/duet.png?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/sporkmonger/duet.png?travis)][gemnasium]
 [![Test Coverage Status](https://img.shields.io/coveralls/sporkmonger/duet.svg)][coveralls]
+[![Code Climate](https://codeclimate.com/github/sporkmonger/duet/badges/gpa.svg)][codeclimate]
 [![Documentation Coverage Status](http://inch-ci.org/github/sporkmonger/duet.svg?branch=master)][inch]
 [![Gittip Donate](http://img.shields.io/gittip/sporkmonger.png)](https://www.gittip.com/sporkmonger/ "Support Open Source Development w/ Gittip")
 
@@ -17,6 +18,7 @@
 [gemnasium]: https://gemnasium.com/sporkmonger/duet
 [coveralls]: https://coveralls.io/r/sporkmonger/duet
 [inch]: http://inch-ci.org/github/sporkmonger/duet
+[codeclimate]: https://codeclimate.com/github/sporkmonger/duet
 
 ## Description
 
