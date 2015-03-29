@@ -19,7 +19,6 @@ RSpec::Core::RakeTask.new
 task test: :spec
 task default: :spec
 
-gem_root = File.expand_path(File.dirname(__FILE__))
 namespace :metrics do
   require 'rake'
   require 'metric_fu'
@@ -27,7 +26,10 @@ namespace :metrics do
   require 'metric_fu/run'
 
   def options_tip(task_name)
-    "with options, for example:  rake metrics:#{task_name}['cane: {abc_max: 81}']"
+    (
+      'with options, for example:  ' \
+      "rake metrics:#{task_name}['cane: {abc_max: 81}']"
+    )
   end
 
   desc "Generate all metrics reports, or #{options_tip('all')}"
@@ -35,11 +37,14 @@ namespace :metrics do
     MetricFu.run(process_options(args.options))
   end
 
-  desc "Run only specified ;-separated metrics, for example, metrics:only[cane;flog] or #{options_tip('only')}"
+  desc 'Run only specified ;-separated metrics, for example, ' \
+    "metrics:only[cane;flog] or #{options_tip('only')}"
   task :only, [:metrics, :options] do |_t, args|
     requested_metrics = args.metrics.to_s.split(';').map(&:strip)
     enabled_metrics = MetricFu::Metric.enabled_metrics.map(&:name)
-    metrics_to_run = enabled_metrics.select { |metric| requested_metrics.include?(metric.to_s) }
+    metrics_to_run = enabled_metrics.select do |metric|
+      requested_metrics.include?(metric.to_s)
+    end
     MetricFu.run_only(metrics_to_run, process_options(args.options))
   end
 
@@ -53,33 +58,36 @@ namespace :metrics do
 
 private
 
-  # from https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/hash/keys.rb
+  # from https://github.com/rails/rails/blob/master/activesupport/ \
+  #        lib/active_support/core_ext/hash/keys.rb
   class Hash
-    # Destructively, recursively convert all keys to symbols, as long as they respond
-    # to +to_sym+.
+    # Destructively, recursively convert all keys to symbols, as long
+    # as they respond to +to_sym+.
     def recursively_symbolize_keys!
       keys.each do |key|
         value = delete(key)
         new_key = key.intern # rescue
-        self[new_key] = (value.is_a?(Hash) ? value.dup.recursively_symbolize_keys! : value)
+        self[new_key] = (
+          value.is_a?(Hash) ? value.dup.recursively_symbolize_keys! : value
+        )
       end
       self
     end
   end
 
   def process_options(options)
-    return {} if options.nil? or options.empty?
+    return {} if options.nil? || options.empty?
     options = YAML.load(options)
     if options.is_a?(Hash)
       p "Got options #{options.recursively_symbolize_keys!.inspect}"
       options
     else
-      fail "Invalid options #{options.inspect}, is a #{options.class}, should be a Hash"
+      fail "Invalid options #{options.inspect}, is a " \
+        "#{options.class}, should be a Hash"
     end
   end
 end
 
-gem_root = File.expand_path(File.dirname(__FILE__))
 namespace :mutant do
   desc 'Run mutant'
   task :coverage do
@@ -100,7 +108,7 @@ namespace :mutant do
       Duet
     )
 
-    status = Mutant::CLI.run(arguments)
+    Mutant::CLI.run(arguments)
   end
 end
 
