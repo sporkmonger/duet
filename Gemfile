@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'addressable', git: 'https://github.com/sporkmonger/addressable.git'
+
 group :test do
   gem 'simplecov', require: false
   gem 'coveralls', require: false
