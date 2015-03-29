@@ -16,8 +16,8 @@ Gem::Tasks.new
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
 
-task :test    => :spec
-task :default => :spec
+task test: :spec
+task default: :spec
 
 gem_root = File.expand_path(File.dirname(__FILE__))
 namespace :metrics do
@@ -37,7 +37,7 @@ namespace :metrics do
 
   desc "Run only specified ;-separated metrics, for example, metrics:only[cane;flog] or #{options_tip('only')}"
   task :only, [:metrics, :options] do |_t, args|
-    requested_metrics = args.metrics.to_s.split(";").map(&:strip)
+    requested_metrics = args.metrics.to_s.split(';').map(&:strip)
     enabled_metrics = MetricFu::Metric.enabled_metrics.map(&:name)
     metrics_to_run = enabled_metrics.select { |metric| requested_metrics.include?(metric.to_s) }
     MetricFu.run_only(metrics_to_run, process_options(args.options))
@@ -74,7 +74,7 @@ private
       p "Got options #{options.recursively_symbolize_keys!.inspect}"
       options
     else
-      raise "Invalid options #{options.inspect}, is a #{options.class}, should be a Hash"
+      fail "Invalid options #{options.inspect}, is a #{options.class}, should be a Hash"
     end
   end
 end
@@ -89,7 +89,7 @@ namespace :mutant do
     jobs = ENV.key?('CI') ? 4 : Mutant::Config::DEFAULT.jobs
 
     # Note: Increase your score value once you've actually written tests.
-    arguments = %W[
+    arguments = %W(
       --use rspec
       --jobs #{jobs}
       --score 0
@@ -98,12 +98,12 @@ namespace :mutant do
       --require duet
       --
       Duet
-    ]
+    )
 
     status = Mutant::CLI.run(arguments)
   end
 end
 
 require 'yard'
-YARD::Rake::YardocTask.new  
-task :doc => :yard
+YARD::Rake::YardocTask.new
+task doc: :yard
