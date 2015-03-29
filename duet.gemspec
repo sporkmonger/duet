@@ -17,6 +17,14 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
+  gem.add_dependency 'addressable', ">= 2.3.7"
+  gem.add_dependency 'rack', "~> 1.6"
+  gem.add_dependency 'rack-accept', ">= 0.4"
+  gem.add_dependency 'rack-mount', ">= 0.8"
+  gem.add_dependency 'multi_json', ">= 1.3.2"
+  gem.add_dependency 'multi_xml', ">= 0.5.2"
+  gem.add_dependency 'virtus', ">= 1.0"
+
   gem.add_development_dependency 'bundler', "~> 1.2"
   gem.add_development_dependency 'metric_fu', ["~> 4.11", ">= 4.11.4"]
   gem.add_development_dependency 'mutant', ["~> 0.7", ">= 0.7.8"]
