@@ -32,6 +32,7 @@ build/
 Gemfile.lock
 .ruby-version
 .ruby-gemset
+.multiterm.yml
 
 ## Not supporting old versions of RVM
 .rvmrc
