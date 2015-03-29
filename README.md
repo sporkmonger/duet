@@ -44,6 +44,6 @@ $ gem install duet
 
 Copyright (c) 2015 Bob Aman
 
-See [LICENSE.txt][license] for details.
+Apache 2.0 License. See [LICENSE.txt][license] for details.
 
 [license]:https://raw.githubusercontent.com/sporkmonger/duet/master/LICENSE.txt
