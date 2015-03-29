@@ -42,7 +42,7 @@ $ gem install duet
 
 ## Copyright
 
-Copyright (c) 2015 Bob Aman
+© 2015 Bob Aman
 
 Apache 2.0 License. See [LICENSE.txt][license] for details.
 
