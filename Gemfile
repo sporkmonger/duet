@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'addressable', git: 'https://github.com/sporkmonger/addressable.git'
+gem 'addressable', git: 'https://github.com/sporkmonger/addressable.git', branch: 'rack-mount'
 
 group :test do
   gem 'simplecov', require: false

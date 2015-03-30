@@ -25,12 +25,13 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'multi_xml', '>= 0.5.2'
   gem.add_dependency 'virtus', '>= 1.0'
 
+  gem.add_development_dependency 'rack-test', '~> 0.6', '>= 0.6.3'
   gem.add_development_dependency 'bundler', '~> 1.2'
-  gem.add_development_dependency 'metric_fu', ['~> 4.11', '>= 4.11.4']
-  gem.add_development_dependency 'mutant', ['~> 0.7', '>= 0.7.8']
-  gem.add_development_dependency 'mutant-rspec', ['~> 0.7', '>= 0.7.8']
+  gem.add_development_dependency 'metric_fu', '~> 4.11', '>= 4.11.4'
+  gem.add_development_dependency 'mutant', '~> 0.7', '>= 0.7.8'
+  gem.add_development_dependency 'mutant-rspec', '~> 0.7', '>= 0.7.8'
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'rspec', ['< 3.3.0', '>= 3.0.0']
+  gem.add_development_dependency 'rspec', '< 3.3.0', '>= 3.0.0'
   gem.add_development_dependency 'rubygems-tasks', '~> 0.2'
   gem.add_development_dependency 'yard', '~> 0.8'
   gem.add_development_dependency 'appraisal', '~> 1.0'
