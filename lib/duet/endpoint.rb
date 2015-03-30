@@ -4,6 +4,7 @@ module Duet
   class Endpoint
     def initialize
       @versions = ['v1']
+      @name = nil
       @method = nil
       @pattern = nil
       @block = nil
@@ -14,20 +15,13 @@ module Duet
       @versions.uniq!
     end
 
-    def name(new_name)
-      @name = new_name
-    end
-
-    def method(new_method)
-      @method = new_method
-    end
-
-    def match(pattern)
-      @pattern = pattern
-    end
-
-    def respond(&new_block)
-      @block = new_block
+    %w(get post put head delete options patch).each do |meth|
+      define_method meth do |*args, &block|
+        @method = meth.to_s.upcase
+        @pattern = args.shift
+        @name = args.shift
+        @block = block
+      end
     end
 
     def template

@@ -15,10 +15,7 @@ describe Duet::Application do
 
     before do
       subject.endpoint do
-        name :hello
-        method 'POST'
-        match '/hello'
-        respond do |env|
+        post '/hello', :hello do |env|
           [200, { 'Content-Type' => 'text/plain' }, 'Hello Duet!']
         end
       end
