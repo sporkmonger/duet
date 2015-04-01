@@ -9,6 +9,8 @@ if ENV['CI'].to_s == 'true'
   CodeClimate::TestReporter.start
 else
   require 'simplecov'
+  require 'simplecov-sublime-ruby-coverage'
+  SimpleCov.formatter = SimpleCov::Formatter::SublimeRubyCoverageFormatter
   SimpleCov.start do
     add_filter 'spec/'
   end

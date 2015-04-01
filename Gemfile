@@ -8,6 +8,10 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
 end
 
+group :test, :development do
+  gem 'simplecov-sublime-ruby-coverage', require: false
+end
+
 group :development do
   gem 'guard'
   gem 'guard-rspec'
