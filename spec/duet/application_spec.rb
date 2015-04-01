@@ -15,6 +15,7 @@ describe Duet::Application do
 
     before do
       subject.endpoint do
+        version 'v1'
         post '/hello', :hello do |env|
           [200, { 'Content-Type' => 'text/plain' }, 'Hello Duet!']
         end

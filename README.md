@@ -34,6 +34,12 @@ require 'duet'
 
 ## Requirements
 
+The development environment for OS X requires Terminal Notifier.
+
+```
+$ brew install terminal-notifier
+```
+
 ## Install
 
 ```

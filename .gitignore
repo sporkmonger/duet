@@ -4,6 +4,7 @@
 ## Ruby-related files
 *.gem
 *.rbc
+.guardresult
 /.config
 /coverage/
 /InstalledFiles

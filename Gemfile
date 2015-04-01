@@ -10,6 +10,7 @@ end
 
 group :test, :development do
   gem 'simplecov-sublime-ruby-coverage', require: false
+  gem 'terminal-notifier-guard', require: false
 end
 
 group :development do
